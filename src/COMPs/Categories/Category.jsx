@@ -1,12 +1,13 @@
+// =============shu
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import styles from "../../styles/Category.module.css";
 
 import { useGetProductsQuery } from "../../features/api/apiSlice";
 
 import Products from "../Products/Products";
-import { useSelector } from "react-redux";
 
 const Category = () => {
   const { id } = useParams();
@@ -40,6 +41,7 @@ const Category = () => {
     setItems([]); //clear products when change cat
     setEnd(false); //return button See more when change cat
     setParams({ ...defaultParams, categoryId: id }); //params was change to defPar for return offset
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   useEffect(() => {
